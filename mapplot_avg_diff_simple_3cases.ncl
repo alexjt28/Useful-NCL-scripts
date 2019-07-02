@@ -29,6 +29,9 @@ begin
 ; Is there a special name for these cases to include in the output file name?
  name = "[example description here]"
 
+ numcases = 3
+ monthly  = "Yes"
+
 ;-------------------------------------------------------
 ; Are the netCDF files a list of separate monthly files?
 ;-------------------------------------------------------
@@ -110,7 +113,7 @@ begin
  file_type  = "pdf"    ; "x11" or "pdf"
 
  ; If second variables exists, this is used for file name
- outputfilename = ""+SEASON+"_year"+YEARS+"_"+VAR1+""+MATH+""+VAR2+"_"+LEVEL+"_"+name+""
+ outputfilename = "/pdfs/"+SEASON+"_year"+YEARS+"_"+VAR1+""+MATH+""+VAR2+"_"+LEVEL+"_"+name+""
 
 ;-----------------------------------------------------------
 ; Specify contour levels for absolute and difference values

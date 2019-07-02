@@ -153,7 +153,7 @@ begin
 ; Important plot specifications to set here
 ;-------------------------------------------------
 
- ColorTableName = "BlAqGrYeOrReVi200"
+ ColorTableName = "BlAqGrYeOrReVi200" ; Take text from https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml
  LeftString     = "~F21~"+SEASON+" "+VAR1+""+MATH+""+VAR2+""
  CenterString   = ""
  RightString    = ""
@@ -564,12 +564,15 @@ end if
 
 ; Colors
 
- res@lbLabelBarOn        = True
- res@ColorTable          = ColorTableName       ; Take text from https://www.ncl.ucar.edu/Document/Graphics/color_table_gallery.shtml
- res@ReverseColorTable   = False                ; Reverse color table order?
- res@gsnSpreadColors     = True                 ; if True, reduces colors used from color table
- res@gsnSpreadColorStart =  20                  ; Index to start with: default=2
- res@gsnSpreadColorEnd   = -20                  ; Index to end with: default=-1
+ gsn_define_colormap(wks,""+ColorTableName+"")  ; Set at beginning of script by ColorTable
+ ReverseColorTable = False                  ; Reverse color table order?
+ if (ReverseColorTable .eq. True) then
+   gsn_reverse_colormap(wks)
+ end if
+ res@lbLabelBarOn         = True             ; True turns on label bar
+ res@gsnSpreadColors      = True             ; if True, reduces colors used from color table
+ res@gsnSpreadColorStart  =  20              ; Index to start with: default=2
+ res@gsnSpreadColorEnd    = -20              ; Index to end with: default=-1
 
 ; Label Bar Style
 

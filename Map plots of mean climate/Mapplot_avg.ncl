@@ -66,7 +66,7 @@ begin
 
 ; Which variable(s) to plot? Can perform math operations on these variables
 
- VAR1 = "TS"
+ VAR1 = "TREFHT"
  VAR2 = ""
 
 ; What are the units of the variable?

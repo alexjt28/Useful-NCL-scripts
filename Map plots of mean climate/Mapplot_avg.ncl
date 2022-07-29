@@ -1,8 +1,9 @@
 ;-------------------------------------------------------------------------------------------------------------------
 ; This script reads in variables from a climatology netCDF file and produces a map plot of each case's average
-; values and differences between cases. Functionality for weighting by length of month and adding a point/region
-; polymaker in final plot is included. This script includes functionality for calculating values from five (5) 
-; separate cases; however, it can be easily modified to increase/decrease this number.
+; values and differences between cases. Functionality for weighting by length of month, specifying a mask for 
+; land/ocean values, and adding a point/region polymaker in final plot is included. This script includes 
+; functionality for calculating values from five (5) separate cases; however, it can be easily modified to 
+; increase/decrease this number.
 ;
 ; Author: Alex Thompson
 ; Date: 7/29/2022
@@ -365,6 +366,38 @@ end if
  var_averg!1   = "lon"
  var_averg&lat = lat
  var_averg&lon = lon
+
+; Read in file with land-sea mask
+ inLF = addfile("[filepath with land-sea mask variable","r")
+ landseamask = inLF->LANDFRAC(0,:,:)
+
+; Land/sea mask
+  do lati=0,dimsizes(lat)-1
+   do loni=0,dimsizes(lon)-1
+     if (landseamask(lati,loni) .le. 0.1) then
+       var_averg(lati,loni) = var_averg@_FillValue
+     end if
+   end do
+  end do
+
+;---------------------------------------------------------
+; Can also do coastal values by uncommenting this block
+;.........................................................
+;  var_averg_hold = var_averg
+;  var_averg = var_averg@_FillValue
+;
+;  maskratio = 0.4
+;
+;  do lati=0,dimsizes(lat)-1
+;   do loni=0,dimsizes(lon)-1
+;    if (loni+2 .le. dimsizes(lon)-2) then
+;     if (landseamask(lati,loni) .le. maskratio .AND. landseamask(lati,loni+1) .gt. maskratio) then
+;      var_averg(lati,loni+1) = var_averg_hold(lati,loni+1)
+;      var_averg(lati,loni+2) = var_averg_hold(lati,loni+2)
+;     end if
+;    end if
+;   end do
+;  end do
 
 ; lonFlip
 

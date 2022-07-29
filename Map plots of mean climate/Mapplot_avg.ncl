@@ -243,23 +243,12 @@ end if
      ins = addfile(fil,"r")
 
    if (LEVEL .eq. "") then
-
-     if (VAR1 .eq. "H2OSOI" .OR. VAR1 .eq. "TSOI") then
-      var1      = ins->$VAR1$(begi:endi,:,:,:)
-     else
       var1      = ins->$VAR1$(begi:endi,:,:)
-     end if
-
-     if (VAR1 .eq. "H2OSOI" .OR. VAR1 .eq. "TSOI") then
-      var1_orig = var1(begi:endi,SOIL_LEV,:,:)*MULT
-     else
       var1_orig = var1*MULT
-     end if
      if (VAR2 .ne. "") then
       var2      = ins->$VAR2$(begi:endi,:,:)
       var2_orig = var2*MULT
      end if
-
      var1_time = var1_orig(:,:,:)
     if (VAR2 .ne. "") then
      var2_time = var2_orig(:,:,:)

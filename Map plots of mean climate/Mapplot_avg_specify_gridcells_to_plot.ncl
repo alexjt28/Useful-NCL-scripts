@@ -28,13 +28,13 @@ begin
  CASE3  = "[CASE3 filepath]"
  CASE4  = "[CASE4 filepath]"
  CASE5  = "[CASE5 filepath]"
- CASE5  = "[CASE6 filepath]"
- CASE5  = "[CASE7 filepath]"
- CASE5  = "[CASE8 filepath]"
- CASE5  = "[CASE9 filepath]"
- CASE5  = "[CASE10 filepath]"
- CASE5  = "[CASE11 filepath]"
- CASE5  = "[CASE12 filepath]"
+ CASE6  = "[CASE6 filepath]"
+ CASE7  = "[CASE7 filepath]"
+ CASE8  = "[CASE8 filepath]"
+ CASE9  = "[CASE9 filepath]"
+ CASE10  = "[CASE10 filepath]"
+ CASE11  = "[CASE11 filepath]"
+ CASE12  = "[CASE12 filepath]"
 
  CASES = (/ CASE1, CASE2, CASE3, CASE4, CASE5, CASE6, CASE7, CASE8, CASE9, CASE10, CASE11, CASE12 /)
 

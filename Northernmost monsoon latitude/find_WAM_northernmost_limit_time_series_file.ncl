@@ -12,7 +12,7 @@
 ; Author: Alex Thompson
 ; Date: 7/29/2022
 ;
-; Example shown here is for 50 years of monthly files from a case named "b.e12.B1850C5.f19_g16.i09ka.04"
+; Example shown here is for 100 years of monthly files from a case named "b.e12.B1850C5.f19_g16.i09ka.04"
 ;----------------------------------------------------------------------------------------------------------------------
 
 begin
